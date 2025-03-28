@@ -36,6 +36,10 @@ def main():
             if astroid.check_collisions(player):
                 print("GAME OVER!")
                 sys.exit()
+            for shot in shots:
+                if shot.check_collisions(astroid):
+                    shot.kill()
+                    astroid.split()
         screen.fill("black")
         
         for obj in drawable:
